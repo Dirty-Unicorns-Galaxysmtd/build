@@ -493,7 +493,6 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
 #  script.UnpackPackageDir("recovery", "/system")
   script.Print("Extracting /system")
-  #script.UnpackPackageDir("recovery", "/system")
   script.UnpackPackageDir("system", "/system")
 
   symlinks = CopySystemFiles(input_zip, output_zip)
