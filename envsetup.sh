@@ -76,7 +76,6 @@ function check_product()
 
     if (echo -n $1 | grep -q -e "^du_") ; then
        DU_BUILD=$(echo -n $1 | sed -e 's/^du_//g')
-       export BUILD_NUMBER=$((date +%s%N ; echo $DU_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10)
     else
        DU_BUILD=
     fi
@@ -462,9 +461,6 @@ function print_lunch_menu()
     local uname=$(uname)
     echo
     echo "You're building on" $uname
-    if [ "$(uname)" = "Darwin" ] ; then
-       echo "  (ohai, koush!)"
-    fi
     echo
     if [ "z${DU_DEVICES_ONLY}" != "z" ]; then
        echo "Breakfast menu... pick a combo:"
@@ -746,7 +742,7 @@ function gettop
             T=
             while [ \( ! \( -f $TOPFILE \) \) -a \( $PWD != "/" \) ]; do
                 \cd ..
-                T=`PWD= /bin/pwd`
+                T=`PWD= /bin/pwd -P`
             done
             \cd $HERE
             if [ -f "$T/$TOPFILE" ]; then

@@ -25,20 +25,15 @@ PRODUCT_PACKAGES := \
     WAPPushManager
 
 PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
     LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
     PhaseBeam \
-    VisualizationWallpapers \
     PhotoTable
 
 # Additional settings used in all AOSP builds
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.com.android.dateformat=MM-dd-yyyy \
-    ro.config.ringtone=Ring_Synth_04.ogg \
+    ro.config.alarm_alert=Argon.ogg \
+    ro.config.ringtone=Orion.ogg \
     ro.config.notification_sound=pixiedust.ogg
 
 # Put en_US first in the list, so make it default.
